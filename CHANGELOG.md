@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/catalystsquad/app-utils-go/compare/v1.0.0...v1.0.1) (2022-03-15)
+
+
+### Bug Fixes
+
+* Add template with function ([#3](https://github.com/catalystsquad/app-utils-go/issues/3)) ([79aa82a](https://github.com/catalystsquad/app-utils-go/commit/79aa82af3dfa1afd3633e84c367ac6af382da603))
+
 # 1.0.0 (2022-03-07)
 
 
