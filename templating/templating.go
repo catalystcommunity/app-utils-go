@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/catalystsquad/app-utils-go/errorutils"
 	"github.com/joomcode/errorx"
+	"regexp"
 	"strings"
 )
 
@@ -47,4 +48,27 @@ func panicIfNotTemplated(templated string) {
 	if strings.Contains(templated, "<<") || strings.Contains(templated, ">>") {
 		errorutils.PanicOnErr(nil, "string is not fully templated", errorx.IllegalState.New("Templated string: %s", templated))
 	}
+}
+
+func TemplateWithFunction(source string, replaceFunction func(key string) (string, error)) (string, error) {
+	r := regexp.MustCompile(`<<.*>>`)
+	keys := r.FindAllString(source, -1)
+	templatedString := source
+	for _, key := range keys {
+		replacement, err := replaceFunction(key)
+		if err != nil {
+			return "", err
+		}
+		templatedString, err = TemplateString(templatedString, key, replacement)
+		if err != nil {
+			return "", err
+		}
+	}
+	return templatedString, nil
+}
+
+func MustTemplateWithFunction(source string, replaceFunction func(key string) (string, error)) string {
+	templatedString, err := TemplateWithFunction(source, replaceFunction)
+	errorutils.PanicOnErr(nil, "error templating string with function", err)
+	return templatedString
 }
