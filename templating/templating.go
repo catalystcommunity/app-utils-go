@@ -3,9 +3,7 @@ package templating
 import (
 	"fmt"
 	"github.com/catalystsquad/app-utils-go/errorutils"
-	"github.com/catalystsquad/app-utils-go/logging"
 	"github.com/joomcode/errorx"
-	"github.com/sirupsen/logrus"
 	"regexp"
 	"strings"
 )
@@ -68,7 +66,6 @@ func TemplateWithFunction(source string, replaceFunction func(key string) (strin
 		if err != nil {
 			return "", err
 		}
-		logging.Log.WithFields(logrus.Fields{"key": key, "replacement": replacement, "templatedString": templatedString}).Info("replaced key using function")
 	}
 	return templatedString, nil
 }
