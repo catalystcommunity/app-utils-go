@@ -5,6 +5,8 @@ import (
 	"sync"
 )
 
+// worker is an internal struct, the worker is what handles the work for a given job. The WorkHandler and Job interfaces
+// must be implemented by the user.
 type worker struct {
 	id          uuid.UUID       // worker id
 	jobChannel  jobChannel      // a channel to receive a job, a job represents a unit of work
@@ -14,19 +16,22 @@ type worker struct {
 	workHandler WorkHandler     // handler interface, this will handle the work to be done
 }
 
+// WorkHandler is the user facing interface that does the work
 type WorkHandler interface {
+	GetId() uuid.UUID
 	HandleJob(job Job)
 }
 
-// Job represents a single entity that should be processed, this should be a unit of work
+// Job is the user facing interface that describes the work to be done
 type Job interface {
-	GetJobId() uuid.UUID
-	GetJobData() interface{}
+	GetId() uuid.UUID
+	GetData() interface{}
 }
 
 type jobChannel chan Job
 type jobQueue chan chan Job
 
+// newWorker returns a new worker
 func newWorker(jobChan jobChannel, queue jobQueue, quit chan struct{}, workHandler WorkHandler, waitGroup *sync.WaitGroup) *worker {
 	return &worker{
 		id:          uuid.New(),
@@ -38,6 +43,7 @@ func newWorker(jobChan jobChannel, queue jobQueue, quit chan struct{}, workHandl
 	}
 }
 
+// start starts a worker, this means the worker will listen on its channels for jobs or a quit signal
 func (wr *worker) start() {
 	go func() {
 		for {
@@ -87,7 +93,7 @@ type dispatcher struct {
 	waitGroup   *sync.WaitGroup
 }
 
-// Start creates pool of num count of workers.
+// Start creates pool of workers, and starts each worker
 func (d *dispatcher) Start() *dispatcher {
 	l := len(d.workers)
 	for i := 1; i <= l; i++ {
@@ -117,11 +123,14 @@ func (d *dispatcher) process() {
 	}
 }
 
+// Submit is how a job is submitted to the dispatcher, jobs will be handled by a worker
 func (d *dispatcher) Submit(job Job) {
 	d.waitGroup.Add(1)
 	d.jobChannel <- job
 }
 
+// Wait will wait until all work is completed. This is accomplished by sharing the dispatcher's waitgroup
+// with workers.
 func (d *dispatcher) Wait() {
 	d.waitGroup.Wait()
 }
