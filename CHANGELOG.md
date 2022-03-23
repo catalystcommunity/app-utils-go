@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/catalystsquad/app-utils-go/compare/v1.0.2...v1.0.3) (2022-03-23)
+
+
+### Bug Fixes
+
+* Add dispatcher to easily handle concurrent work ([#5](https://github.com/catalystsquad/app-utils-go/issues/5)) ([60575fe](https://github.com/catalystsquad/app-utils-go/commit/60575fec78a9f539d97fd1c04626a6fa7c9f7652))
+
 ## [1.0.2](https://github.com/catalystsquad/app-utils-go/compare/v1.0.1...v1.0.2) (2022-03-15)
 
 
