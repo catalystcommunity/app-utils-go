@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/getsentry/sentry-go v0.12.0
+	github.com/google/uuid v1.3.0
 	github.com/joomcode/errorx v1.1.0
 	github.com/oklog/ulid v1.3.1
 	github.com/rs/zerolog v1.26.1
