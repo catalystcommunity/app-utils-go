@@ -18,13 +18,11 @@ type worker struct {
 
 // WorkHandler is the user facing interface that does the work
 type WorkHandler interface {
-	GetId() uuid.UUID
 	HandleJob(job Job)
 }
 
 // Job is the user facing interface that describes the work to be done
 type Job interface {
-	GetId() uuid.UUID
 	GetData() interface{}
 }
 
