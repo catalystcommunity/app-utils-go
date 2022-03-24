@@ -12,7 +12,7 @@ type worker struct {
 	jobChannel  jobChannel      // a channel to receive a job, a job represents a unit of work
 	jobQueue    jobQueue        // shared between all workers
 	quit        chan struct{}   // a channel to quit working
-	waitGroup   *sync.WaitGroup // waitgroup reference, this should be the dispatcher's waitgroup so that the dispatcher can wait for all work to complete
+	waitGroup   *sync.WaitGroup // waitgroup reference, this should be the Dispatcher's waitgroup so that the Dispatcher can wait for all work to complete
 	workHandler WorkHandler     // handler interface, this will handle the work to be done
 }
 
@@ -69,11 +69,11 @@ func (wr *worker) stop() {
 	close(wr.quit)
 }
 
-// NewDispatcher returns a new dispatcher. Its main job is to receive a job and share it on the WorkPool
-// WorkPool is the link between the dispatcher and all the workers as
-// the WorkPool of the dispatcher is common JobPool for all the workers
-func NewDispatcher(parallelism int, workHandler WorkHandler) *dispatcher {
-	return &dispatcher{
+// NewDispatcher returns a new Dispatcher. Its main job is to receive a job and share it on the WorkPool
+// WorkPool is the link between the Dispatcher and all the workers as
+// the WorkPool of the Dispatcher is common JobPool for all the workers
+func NewDispatcher(parallelism int, workHandler WorkHandler) *Dispatcher {
+	return &Dispatcher{
 		workers:     make([]*worker, parallelism),
 		jobChannel:  make(jobChannel),
 		jobQueue:    make(jobQueue),
@@ -82,9 +82,9 @@ func NewDispatcher(parallelism int, workHandler WorkHandler) *dispatcher {
 	}
 }
 
-// dispatcher is the link between the client and the workers
-type dispatcher struct {
-	workers     []*worker  // this is the list of workers that dispatcher tracks
+// Dispatcher is the link between the client and the workers
+type Dispatcher struct {
+	workers     []*worker  // this is the list of workers that Dispatcher tracks
 	jobChannel  jobChannel // client submits job to this channel
 	jobQueue    jobQueue   // this is the shared JobPool between the workers
 	workHandler WorkHandler
@@ -92,10 +92,10 @@ type dispatcher struct {
 }
 
 // Start creates pool of workers, and starts each worker
-func (d *dispatcher) Start() *dispatcher {
+func (d *Dispatcher) Start() *Dispatcher {
 	l := len(d.workers)
 	for i := 1; i <= l; i++ {
-		// all workers share the dispatcher's waitgroup
+		// all workers share the Dispatcher's waitgroup
 		wrk := newWorker(make(jobChannel), d.jobQueue, make(chan struct{}), d.workHandler, d.waitGroup)
 		wrk.start()
 		d.workers = append(d.workers, wrk)
@@ -107,7 +107,7 @@ func (d *dispatcher) Start() *dispatcher {
 // process listens to a job submitted on jobChannel and
 // relays it to the WorkPool. The WorkPool is shared between
 // the workers.
-func (d *dispatcher) process() {
+func (d *Dispatcher) process() {
 	for {
 		select {
 		case job := <-d.jobChannel: // listen to any submitted job on the jobChannel
@@ -121,14 +121,14 @@ func (d *dispatcher) process() {
 	}
 }
 
-// Submit is how a job is submitted to the dispatcher, jobs will be handled by a worker
-func (d *dispatcher) Submit(job Job) {
+// Submit is how a job is submitted to the Dispatcher, jobs will be handled by a worker
+func (d *Dispatcher) Submit(job Job) {
 	d.waitGroup.Add(1)
 	d.jobChannel <- job
 }
 
-// Wait will wait until all work is completed. This is accomplished by sharing the dispatcher's waitgroup
+// Wait will wait until all work is completed. This is accomplished by sharing the Dispatcher's waitgroup
 // with workers.
-func (d *dispatcher) Wait() {
+func (d *Dispatcher) Wait() {
 	d.waitGroup.Wait()
 }
