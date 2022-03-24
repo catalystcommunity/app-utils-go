@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/catalystsquad/app-utils-go/compare/v1.0.3...v1.0.4) (2022-03-24)
+
+
+### Bug Fixes
+
+* Export dispatcher so it can be referenced ([#7](https://github.com/catalystsquad/app-utils-go/issues/7)) ([3d8b67a](https://github.com/catalystsquad/app-utils-go/commit/3d8b67a1365c75df2213ba85bd246d6a9c56668a))
+
 ## [1.0.3](https://github.com/catalystsquad/app-utils-go/compare/v1.0.2...v1.0.3) (2022-03-23)
 
 
