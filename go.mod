@@ -1,6 +1,6 @@
 module github.com/catalystsquad/app-utils-go
 
-go 1.17
+go 1.19
 
 require (
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d
@@ -8,7 +8,6 @@ require (
 	github.com/google/uuid v1.3.0
 	github.com/joomcode/errorx v1.1.0
 	github.com/oklog/ulid v1.3.1
-	github.com/rs/zerolog v1.26.1
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/viper v1.3.2
 	github.com/stretchr/testify v1.4.0
