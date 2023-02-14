@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/catalystsquad/app-utils-go/compare/v1.0.5...v1.0.6) (2023-02-14)
+
+
+### Bug Fixes
+
+* remove zerolog and update go version ([#10](https://github.com/catalystsquad/app-utils-go/issues/10)) ([ee6e73a](https://github.com/catalystsquad/app-utils-go/commit/ee6e73aae3c891abc99752ef19f7efb23f10cb47))
+
 ## [1.0.5](https://github.com/catalystsquad/app-utils-go/compare/v1.0.4...v1.0.5) (2022-06-07)
 
 
