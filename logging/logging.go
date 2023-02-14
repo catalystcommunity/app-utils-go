@@ -4,7 +4,6 @@ import (
 	"github.com/catalystsquad/app-utils-go/env"
 	"github.com/sirupsen/logrus"
 	"strings"
-	"time"
 )
 
 var LogLevel = env.GetEnvOrDefault("LOG_LEVEL", "INFO")
