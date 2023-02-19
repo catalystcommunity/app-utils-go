@@ -1,16 +1,17 @@
 package logging
 
 import (
+	"strings"
+
 	"github.com/catalystsquad/app-utils-go/env"
 	"github.com/sirupsen/logrus"
-	"strings"
 )
 
 var LogLevel = env.GetEnvOrDefault("LOG_LEVEL", "INFO")
 var LogFmt = env.GetEnvAsBoolOrDefault("LOG_FMT", "false")
 var Log = logrus.New()
 
-func init() {
+func Init() {
 	// logrus
 	if LogFmt {
 		// default uses `logfmt` if terminal is not tty. This is nice for machines but bad for human readability
