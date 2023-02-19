@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/catalystsquad/app-utils-go/compare/v1.0.6...v1.0.7) (2023-02-19)
+
+
+### Bug Fixes
+
+* export logging init by capitalizing ([#11](https://github.com/catalystsquad/app-utils-go/issues/11)) ([01f6974](https://github.com/catalystsquad/app-utils-go/commit/01f69744dd4d5470d0f122b119905909520df991))
+
 ## [1.0.6](https://github.com/catalystsquad/app-utils-go/compare/v1.0.5...v1.0.6) (2023-02-14)
 
 
