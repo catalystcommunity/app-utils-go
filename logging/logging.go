@@ -11,7 +11,7 @@ var LogLevel = env.GetEnvOrDefault("LOG_LEVEL", "INFO")
 var LogFmt = env.GetEnvAsBoolOrDefault("LOG_FMT", "false")
 var Log = logrus.New()
 
-func Init() {
+func init() {
 	// logrus
 	if LogFmt {
 		// default uses `logfmt` if terminal is not tty. This is nice for machines but bad for human readability
