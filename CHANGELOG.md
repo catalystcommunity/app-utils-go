@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/catalystsquad/app-utils-go/compare/v1.0.7...v1.0.8) (2024-05-22)
+
+
+### Bug Fixes
+
+* init function to be lowercase so that it's automatically executed ([#12](https://github.com/catalystsquad/app-utils-go/issues/12)) ([eafca6b](https://github.com/catalystsquad/app-utils-go/commit/eafca6b3ced665d07750239614903ed71f6996ca))
+
 ## [1.0.7](https://github.com/catalystsquad/app-utils-go/compare/v1.0.6...v1.0.7) (2023-02-19)
 
 
