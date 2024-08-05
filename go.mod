@@ -1,4 +1,4 @@
-module github.com/catalystsquad/app-utils-go
+module github.com/catalystcommunity/app-utils-go
 
 go 1.19
 

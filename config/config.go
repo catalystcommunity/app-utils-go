@@ -3,7 +3,7 @@ package config
 import (
 	"encoding/json"
 	"github.com/asaskevich/govalidator"
-	"github.com/catalystsquad/app-utils-go/logging"
+	"github.com/catalystcommunity/app-utils-go/logging"
 	"github.com/spf13/viper"
 )
 

@@ -2,9 +2,9 @@ package sentry
 
 import (
 	"encoding/json"
-	"github.com/catalystsquad/app-utils-go/env"
-	"github.com/catalystsquad/app-utils-go/errorutils"
-	"github.com/catalystsquad/app-utils-go/logging"
+	"github.com/catalystcommunity/app-utils-go/env"
+	"github.com/catalystcommunity/app-utils-go/errorutils"
+	"github.com/catalystcommunity/app-utils-go/logging"
 	"github.com/getsentry/sentry-go"
 	"github.com/joomcode/errorx"
 	"github.com/sirupsen/logrus"

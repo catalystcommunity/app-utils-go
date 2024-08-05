@@ -15,8 +15,8 @@ import (
 	"time"
 
 	"github.com/brianvoe/gofakeit/v6"
-	"github.com/catalystsquad/app-utils-go/logging"
-	"github.com/catalystsquad/app-utils-go/parallelism"
+	"github.com/catalystcommunity/app-utils-go/logging"
+	"github.com/catalystcommunity/app-utils-go/parallelism"
 )
 
 // MyHandler imlements the WorkHandler interface. It gets the job data, prints the phrase, and then sleeps.

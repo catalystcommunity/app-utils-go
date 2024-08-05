@@ -1,7 +1,7 @@
 package ulids
 
 import (
-	"github.com/catalystsquad/app-utils-go/errorutils"
+	"github.com/catalystcommunity/app-utils-go/errorutils"
 	"github.com/oklog/ulid"
 	"math/rand"
 	"sync"

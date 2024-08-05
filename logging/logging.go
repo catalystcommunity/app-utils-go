@@ -3,7 +3,7 @@ package logging
 import (
 	"strings"
 
-	"github.com/catalystsquad/app-utils-go/env"
+	"github.com/catalystcommunity/app-utils-go/env"
 	"github.com/sirupsen/logrus"
 )
 

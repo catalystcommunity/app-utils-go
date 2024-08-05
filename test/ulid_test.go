@@ -1,8 +1,8 @@
 package test
 
 import (
-	"github.com/catalystsquad/app-utils-go/logging"
-	ulids2 "github.com/catalystsquad/app-utils-go/ulids"
+	"github.com/catalystcommunity/app-utils-go/logging"
+	ulids2 "github.com/catalystcommunity/app-utils-go/ulids"
 	ulid2 "github.com/oklog/ulid"
 	"github.com/stretchr/testify/require"
 	"sort"

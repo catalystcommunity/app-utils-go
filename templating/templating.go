@@ -2,7 +2,7 @@ package templating
 
 import (
 	"fmt"
-	"github.com/catalystsquad/app-utils-go/errorutils"
+	"github.com/catalystcommunity/app-utils-go/errorutils"
 	"github.com/joomcode/errorx"
 	"regexp"
 	"strings"
