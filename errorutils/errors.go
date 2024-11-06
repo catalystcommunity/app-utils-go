@@ -29,7 +29,7 @@ func LogOnErr(logEntry *logrus.Entry, message string, err error) {
 	}
 }
 
-//PanicWithTrace will log a formatted stack trace at the panic level, which will capture the error if sentry is enabled
+// PanicWithTrace will log a formatted stack trace at the panic level, which will capture the error if sentry is enabled
 func PanicOnErr(logEntry *logrus.Entry, message string, err error) {
 	LogOnErr(logEntry, message, err)
 	if err != nil {
