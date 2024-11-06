@@ -1,3 +1,11 @@
+## [1.0.9](https://github.com/catalystcommunity/app-utils-go/compare/v1.0.8...v1.0.9) (2024-11-06)
+
+
+### Bug Fixes
+
+* arbitrary formatting change to trigger release ([#13](https://github.com/catalystcommunity/app-utils-go/issues/13)) ([6918b44](https://github.com/catalystcommunity/app-utils-go/commit/6918b44e1fdfd0255f4205c36385155d199c1f3a))
+* move to catalystcommunity ([1a59480](https://github.com/catalystcommunity/app-utils-go/commit/1a59480f5e909d91003bd5f5403a1943832c8353))
+
 ## [1.0.8](https://github.com/catalystcommunity/app-utils-go/compare/v1.0.7...v1.0.8) (2024-05-22)
 
 
