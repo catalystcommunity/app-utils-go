@@ -8,7 +8,7 @@ require (
 	github.com/google/uuid v1.3.0
 	github.com/joomcode/errorx v1.1.0
 	github.com/oklog/ulid v1.3.1
-	github.com/sirupsen/logrus v1.9.0
+	github.com/sirupsen/logrus v1.9.1
 	github.com/spf13/viper v1.15.0
 	github.com/stretchr/testify v1.8.1
 )
